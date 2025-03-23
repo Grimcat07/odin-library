@@ -1,5 +1,8 @@
 let myLibrary=[];
 function Book(title,author,pages,read){
+    if (!new.target) {
+        throw Error("should be called with new");
+    }
     this.title=title;
     this.author=author;
     this.pages=pages;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="./css-reset.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="row1"><p><h2>Library</h2></p></div>
+        <div class="row2"><button id="dialog">Add Book</button>
+        <dialog>
+            <p>Add Book</p>
+        <form method="dialog">
+            
+            <label for="title">Title <span>*</span></label>
+                <input type="text" id="title" required>
+            
+            <label for="author">Author <span>*</span></label>
+                <input type="text" id="author" required>
+            
+            <label for="pages">Pages <span>*</span></label>
+                <input type="text" id="pages" required>
+            <div class="checkbox-div">
+            <label class="read" for="read">Read</label>
+            <div><input type="checkbox" id="read" ></div>
+            </div>
+            <button class="submit" type="submit">Submit</button>
+        </form>
+        <button formmethod="dialog" value="cancel" id="cancel">x</button>
+        </dialog>
+        </div>
+    </div>
+    <div class="container">
+    </div>
+<script src="./main.js" defer></script>
+</body>
+</html>

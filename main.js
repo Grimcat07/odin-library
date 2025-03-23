@@ -67,7 +67,7 @@ function display()
 
     del.addEventListener("click",()=>{
         myLibrary=myLibrary.filter(book=>book.id!==del.getAttribute("data-id"));
-        display();    
+        container.removeChild(card);    
     });
 });
 }

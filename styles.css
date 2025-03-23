@@ -1,8 +1,5 @@
 /* Global Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
 
@@ -146,13 +143,6 @@ form button.submit:hover {
 
 .cards:hover {
     transform: scale(1.05);
-}
-
-.divcol1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .divcol2 {

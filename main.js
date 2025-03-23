@@ -14,19 +14,17 @@ Book.prototype.readtoggle=function (){
 function addBook(title,author,pages,read) {
     const bookobj=new Book(title,author,pages,read);
     myLibrary.push(bookobj);
-    display(myLibrary);
+    display();
 }
 const container=document.querySelector(".container");
 
-function display(myLibrary)
+function display()
 {
     container.innerHTML="";
 
     myLibrary.forEach((book) => {
     const card=document.createElement("div");
     card.className="cards";
-    const div1=document.createElement("div");
-    div1.className="divcol1";
     const div2=document.createElement("div");
     div2.className="divcol2";
     const title=document.createElement("div");
@@ -47,13 +45,9 @@ function display(myLibrary)
     toggle.addEventListener("click",()=>
     {
         book.readtoggle();
-        display(myLibrary);
+        display();
     })
 
-    
-    
-
-    card.appendChild(div1);
     card.appendChild(div2);
     div2.appendChild(title);
     div2.appendChild(author);
@@ -72,17 +66,10 @@ function display(myLibrary)
     del.textContent="Delete";
 
     del.addEventListener("click",()=>{
-        let index;
-        myLibrary.forEach(book=>{
-            if(book.id===del.getAttribute("data-id"))
-                index=book;
-        });
-       let ind= myLibrary.indexOf(index);
-        myLibrary.splice(ind,1);
-        display(myLibrary);
+        myLibrary=myLibrary.filter(book=>book.id!==del.getAttribute("data-id"));
+        display();    
     });
-
-    });
+});
 }
 const dialog=document.querySelector("dialog");
 const showdialog=document.querySelector("#dialog");
@@ -98,6 +85,7 @@ showdialog.addEventListener("click",()=>{
     })
 
     submit.addEventListener("click",(event)=>{
+    
         event.preventDefault();
 
     const titleInput = document.querySelector("#title");
@@ -110,22 +98,17 @@ showdialog.addEventListener("click",()=>{
     const bookPages = pagesInput.value;
     const bookRead = readInput.checked;
 
-    console.log(event.value)
 
     if (bookTitle && bookAuthor && bookPages)
     {  
-        addBook(bookTitle, bookAuthor, bookPages, bookRead);
+        addBook(bookTitle, bookAuthor, bookPages);
         dialog.close();
         
         titleInput.value = "";
         authorInput.value = "";
         pagesInput.value = "";
         readInput.checked = false;
-    }
-    else
-    {
-        alert("Fill the necessary details marked with *")    
-    }
+    }    
 });
 });
 

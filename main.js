@@ -1,15 +1,18 @@
 let myLibrary=[];
-function Book(title,author,pages,read){
-    if (!new.target) {
-        throw Error("should be called with new");
-    }
+class Book{
+    constructor(title,author,pages,read)
+    {
     this.title=title;
     this.author=author;
     this.pages=pages;
     this.read=(read==true)?"Read":"Not Read";
     this.id=crypto.randomUUID();
+    }
+    readtoggle()
+    {
+    this.read=this.read==="Read"?"Not Read":"Read";
+    }   
 }
-
 Book.prototype.readtoggle=function (){
     this.read=this.read==="Read"?"Not Read":"Read";
 }
